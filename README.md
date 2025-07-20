@@ -10,8 +10,18 @@ A simple example of a Model Context Protocol (MCP) server that demonstrates basi
    ```
 
 2. **Run the server:**
+   
+   Choose one of three transport methods:
+   
    ```bash
-   python hello_server.py
+   # For MCP clients (Claude Desktop, Cursor) - stdio transport
+   python run_stdio.py
+   
+   # For HTTP/REST API testing with curl
+   python run_http.py
+   
+   # For SSE transport (web clients)
+   python run_sse.py
    ```
 
 3. **Test the server:**
@@ -20,7 +30,7 @@ A simple example of a Model Context Protocol (MCP) server that demonstrates basi
    python test_server.py
    
    # Test with HTTP API and curl
-   python run_api.py
+   python run_http.py
    # Then: curl http://localhost:8000/tools
    ```
 
@@ -45,14 +55,23 @@ See [how-to-run-mcp.md](how-to-run-mcp.md) for detailed instructions on:
 hello-mcp/
 ├── hello_server.py              # Main MCP server implementation
 ├── test_server.py               # Test script for tools
-├── run_api.py                   # HTTP API wrapper for curl testing
-├── run_http.py                  # SSE transport runner
+├── run_stdio.py                 # stdio transport for MCP clients (Claude Desktop, Cursor)
+├── run_http.py                  # HTTP API wrapper for curl testing
+├── run_sse.py                   # SSE transport for web clients
 ├── requirements.txt             # Python dependencies
 ├── how-to-run-mcp.md           # Detailed setup and testing guide
 ├── claude_desktop_config_example.json  # Example Claude Desktop configuration
 ├── README.md                    # This file
 └── CLAUDE.md                    # Claude Code guidance file
 ```
+
+## Transport Methods
+
+This server can run in three different modes:
+
+1. **stdio transport** (`run_stdio.py`) - For MCP clients like Claude Desktop and Cursor
+2. **HTTP transport** (`run_http.py`) - REST API for testing with curl commands
+3. **SSE transport** (`run_sse.py`) - Server-Sent Events for web clients (requires MCP-compatible web client)
 
 ## Available Tools
 

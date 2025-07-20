@@ -28,8 +28,9 @@ pip install -r requirements.txt
 ### Core Components
 - `hello_server.py` - Main MCP server using FastMCP framework
 - `test_server.py` - Direct tool testing without client (imports functions directly)
-- `run_api.py` - FastAPI wrapper for HTTP/curl testing with REST endpoints
-- `run_http.py` - SSE transport server for web clients
+- `run_stdio.py` - stdio transport for MCP clients (Claude Desktop, Cursor)
+- `run_http.py` - HTTP/REST API wrapper for curl testing
+- `run_sse.py` - SSE transport server for web clients
 
 ### MCP Server Pattern
 The server follows the FastMCP pattern where:
@@ -52,14 +53,14 @@ The server follows the FastMCP pattern where:
 python test_server.py
 
 # HTTP API testing with FastAPI wrapper
-python run_api.py
+python run_http.py
 # Then test with: curl http://localhost:8000/tools
 
-# Run actual MCP server (stdio mode for clients)
-python hello_server.py
+# Run MCP server for clients (Claude Desktop, Cursor)
+python run_stdio.py
 
 # SSE transport server (for web clients)
-python run_http.py
+python run_sse.py
 ```
 
 ### Client Integration
