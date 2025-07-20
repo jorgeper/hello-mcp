@@ -47,7 +47,7 @@ The server follows the FastMCP pattern where:
 
 ## Development Commands
 
-### Testing the Server
+### Local Development
 ```bash
 # Direct tool testing (recommended for development)
 python test_server.py
@@ -61,6 +61,27 @@ python run_stdio.py
 
 # SSE transport server (for web clients)
 python run_sse.py
+```
+
+### Docker Development
+```bash
+# Build the Docker image
+docker build -t hello-mcp .
+
+# Run HTTP transport (for curl testing)
+docker run -p 8000:8000 hello-mcp
+
+# Run stdio transport (for MCP clients)
+docker run -it hello-mcp python run_stdio.py
+
+# Run tests in container
+docker run hello-mcp python test_server.py
+
+# Development with mounted source code
+docker run -p 8000:8000 -v $(pwd):/app hello-mcp
+
+# Interactive debugging
+docker run -it hello-mcp /bin/bash
 ```
 
 ### Client Integration
