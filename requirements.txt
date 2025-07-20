@@ -1,2 +1,2 @@
-mcp[cli]>=1.0.0
+fastmcp==2.10.6
 fastapi>=0.115.0

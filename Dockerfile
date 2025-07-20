@@ -21,4 +21,4 @@ EXPOSE 8000
 
 # Default command runs the HTTP transport (for testing with curl)
 # Override this when running containers for different transports
-CMD ["python", "run_http.py"]
+CMD ["python", "run_sse.py"]

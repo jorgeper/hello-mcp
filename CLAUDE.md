@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (<claude.ai/code>) when working with code in this repository.
 
 ## Project Overview
 
@@ -9,6 +9,7 @@ This is a Model Context Protocol (MCP) server implementation that demonstrates b
 ## Development Environment
 
 ### Virtual Environment Setup
+
 ```bash
 # Create and activate virtual environment
 python -m venv venv
@@ -33,7 +34,9 @@ pip install -r requirements.txt
 - `run_sse.py` - SSE transport server for web clients
 
 ### MCP Server Pattern
+
 The server follows the FastMCP pattern where:
+
 - Server is initialized with `FastMCP(name, version, description)`
 - Tools are decorated functions using `@mcp.tool()` with full type hints
 - Resources use `@mcp.resource(uri_pattern)` for dynamic content
@@ -85,10 +88,13 @@ docker run -it hello-mcp /bin/bash
 ```
 
 ### Client Integration
+
 Detailed setup instructions are in `how-to-run-mcp.md` for:
+
 - Claude Desktop configuration (requires absolute paths)
 - Cursor IDE integration
 - Custom MCP client development
 
 ### Linting/Type Checking
+
 This project currently has no linting or type checking commands configured. The code uses type hints throughout but lacks formal validation tools.
