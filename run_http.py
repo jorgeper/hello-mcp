@@ -100,4 +100,4 @@ if __name__ == "__main__":
     print("    -d '{\"name\": \"say_hello\", \"arguments\": {\"name\": \"World\"}}'")
     print("-" * 50)
     
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8080)
